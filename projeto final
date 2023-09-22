@@ -1,0 +1,63 @@
+const reservas = [];
+
+function criarReserva() {
+  let criar = prompt("Deseja fazer uma reserva?")
+  if (criar === "sim") {
+   let nome = prompt("Digite seu nome")
+   let data = prompt("Digite a data")
+   let hora = prompt("Digite a hora")
+   let sala = prompt("Digite a sala")
+   let finalidade = prompt("Digite a finalidade")
+    reservas.push({nome: nome, data: data, hora: hora, sala: sala, finalidade: finalidade })
+  } else {
+    console.log("ok '-'")
+  }
+}
+
+
+function visualizarReservas() {
+  let criar = prompt("Deseja visualizar sua reserva?")
+  
+}
+
+function editarReserva() {
+  
+}
+
+function deletarReserva() {
+  
+}
+
+function exibirMenu() {
+  console.log("Menu:");
+  console.log("1. Criar Reserva");
+  console.log("2. Visualizar Reservas");
+  console.log("3. Editar Reserva");
+  console.log("4. Deletar Reserva");
+  console.log("5. Sair");
+  const opcao = prompt("Digite o número da opção desejada:");
+
+  switch (opcao) {
+    case "1":
+      
+      break;
+    case "2":
+      
+      break;
+    case "3":
+      
+      break;
+    case "4":
+      
+      break;
+    case "5":
+      console.log("Saindo do programa. Até logo!");
+      return;
+    default:
+      console.log("Opção inválida. Tente novamente.");
+  }
+
+  
+}
+
+exibirMenu();
