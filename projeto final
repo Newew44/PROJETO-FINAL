@@ -1,31 +1,63 @@
+// /****************************
+// *ESTRUTURA BASE PARA UM MENU*
+// *****************************/
 const reservas = [];
 
-function criarReserva() {
-  let criar = prompt("Deseja fazer uma reserva?")
-  if (criar === "sim") {
-   let nome = prompt("Digite seu nome")
-   let data = prompt("Digite a data")
-   let hora = prompt("Digite a hora")
-   let sala = prompt("Digite a sala")
-   let finalidade = prompt("Digite a finalidade")
-    reservas.push({nome: nome, data: data, hora: hora, sala: sala, finalidade: finalidade })
-  } else {
-    console.log("ok '-'")
-  }
+function reserva() {
+  // Implementar criação de reserva
+  let nome = prompt("Digite um nome");
+  let data = prompt("Digite uma data");
+  let sala = prompt("Digite uma sala")
+  let horario = prompt("Digite um horario");
+  let finalidade = prompt("Qual a finalidade?")
+
+  const reserva = {
+    nome,
+    data,
+    horario,
+    sala,
+    finalidade,
+  };
+
+  reservas.push(reserva);
+  console.log("Reserva criada com sucesso");
+  exibirMenu()
 }
 
-
 function visualizarReservas() {
-  let criar = prompt("Deseja visualizar sua reserva?")
-  
+  // Implementar visualização de reservas
+console.log("lista de reservas:");
+for (let reserva of reservas) {
+    console.log("nome:", reserva.nome, ",", "data:", reserva.data, "horario:", reserva.horario, "sala:", reserva.sala, "finalidade:", reserva.finalidade);
+}
+exibirMenu()
 }
 
 function editarReserva() {
-  
+  // Implementar edição de reserva
+  let indice = prompt("Digite o indice da reserva que deseja editar:");
+  if (indice >= 0 && indice < reservas.length) {
+    let info = prompt("qual informação deseja editar? - nome, data, horario, sala, finalidade");
+    let novaInfo = prompt("digite a nova informacao para:", info);
+
+    reservas[indice][info] = novaInfo;
+    console.log("reserva editada!");
+  } else {
+    console.log("não foi possivel editar a reserva! Tente novamente");
+  }
+  exibirMenu()
 }
 
 function deletarReserva() {
-  
+  // Implementar exclusão de reserva
+  let indice = prompt("Digite qual reserva deseja deletar:");
+  if (indice >= 0 && indice < reservas.length) {
+    reservas.splice(indice, 1);
+    console.log("reserva deletada!")
+  } else {
+    console.log("não foi possivel deletar a reserva! Tente novamente");
+  }
+  exibirMenu()
 }
 
 function exibirMenu() {
@@ -39,16 +71,20 @@ function exibirMenu() {
 
   switch (opcao) {
     case "1":
-      
+      // Chamar função de criar reserva
+      reserva();
       break;
     case "2":
-      
+      // Chamar função de visualizar reservas
+      visualizarReservas();
       break;
     case "3":
-      
+      // Chamar função de editar reserva
+      editarReserva();
       break;
     case "4":
-      
+      // Chamar função de deletar reserva
+      deletarReserva();
       break;
     case "5":
       console.log("Saindo do programa. Até logo!");
@@ -57,7 +93,7 @@ function exibirMenu() {
       console.log("Opção inválida. Tente novamente.");
   }
 
-  
+  // Chamar função de exibir menu novamente
 }
 
 exibirMenu();
